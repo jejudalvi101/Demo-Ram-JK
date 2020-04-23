@@ -8,7 +8,10 @@ pipeline {
                     sh 'mvn package'
                 }
             }
-            stage('Test') {
+            stage('Test on master') {
+                agent{
+                    label 'master'
+                }
                 steps {
                     echo 'Testing..'
                 }
