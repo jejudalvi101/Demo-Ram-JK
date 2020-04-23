@@ -1,21 +1,22 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn package'
-            }
+    agent {
+        label 'Jenkins_Ubuntu_Agent1'
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+        stages {
+            stage('Build on worker 1') {
+                steps {
+                    sh 'mvn package'
+                }
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+            stage('Test') {
+                steps {
+                    echo 'Testing..'
+                }
             }
-        }
-    }
-}
+            stage('Deploy') {
+                steps {
+                    echo 'Deploying....'
+                    }
+                }
+         }
+     }
