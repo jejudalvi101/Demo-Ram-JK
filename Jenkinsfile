@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'Jenkins_Ubuntu_Agent1'
+        label any
         }
         stages {
             stage('Build on worker 1') {
@@ -10,7 +10,7 @@ pipeline {
             }
             stage('Test on master') {
                 agent{
-                    label 'master'
+                    label any
                 }
                 steps {
                     echo 'Testing..'
