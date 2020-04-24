@@ -3,16 +3,13 @@ pipeline {
         label any
         }
         stages {
-            stage('Build on worker 1') {
+            stage('Build') {
                 steps {
                     sh 'mvn package'
                 }
             }
-            stage('Test on master') {
-                agent{
-                    label any
-                }
-                steps {
+            stage('Test') {
+                  steps {
                     echo 'Testing..'
                 }
             }
