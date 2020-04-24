@@ -1,6 +1,7 @@
 pipeline {
-    agent  any
-       
+    agent  {
+    label 'Ubuntu_WorkerNode1'
+    }
         stages {
             stage('Build') {
                 steps {
